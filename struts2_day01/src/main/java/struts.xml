@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!-- Struts2为了管理action的配置，通过包进行管理 -->
+    <!--
+        配置包
+        包名随意，不能重复
+        D:\Workspaces_for_IDEA\Struts2\struts2_day01\web\WEB-INF\lib\struts2-core-2.3.24.jar!\struts-default.xmla
+     -->
+    <!-- 记得要在project structure→facets中配置struts.xml -->
+    <package name="demo" namespace="/" extends="struts-default" >
+        <!-- 配置action -->
+        <action name="hello" class="demo.HelloAction" method="execute" >
+            <!-- 配置页面的跳转 -->
+            <result name="success">/demo/success.jsp</result>
+        </action>
+    </package>
+    <!--&lt;!&ndash; 配置Struts2的常量 &ndash;&gt;-->
+    <!--<constant name="struts.action.extension" value="action"/>-->
+    <!-- 整合其他的struts的配置文件 -->
+    <!-- 记得要在project structure→facets中配置struts_demo1.xml -->
+    <include file="struts_demo1.xml"/>
+</struts>
