@@ -1,6 +1,6 @@
 第一个案例
-demo\demo1.jsp
-demo\success.jsp
+demo1\demo1.jsp
+demo1\success.jsp
 HelloAction
 struts.xml
 web.xml
@@ -17,3 +17,10 @@ struts_demo1.xml
 ActionDemo1
 ActionDemo2
 ActionDemo3
+
+Action的访问
+demo2.jsp
+struts.xml
+UserAction
+ProductAction
+CustomerAction

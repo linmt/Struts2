@@ -1,0 +1,30 @@
+搭建环境
+web.xml
+
+访问Servlet的API方式
+RequestDemo1  RequestDemo2   RequestDemo3
+D:\workspace_for_idea\Struts2\struts2_day02\web\demo1\demo1.jsp
+D:\workspace_for_idea\Struts2\struts2_day02\web\demo1\demo2.jsp
+struts.xml
+
+结果页面的配置
+struts.xml
+
+result标签的配置
+struts.xml
+
+数据封装方式
+User
+UserAction1   UserAction2   UserAction3
+D:\workspace_for_idea\Struts2\struts2_day02\web\demo2\demo1.jsp
+struts.xml
+
+INPUT逻辑视图配置
+struts.xml
+demo1.jsp
+
+复杂类型的数据封装
+Product
+ProductAction1   ProductAction2
+D:\workspace_for_idea\Struts2\struts2_day02\web\demo3\demo1.jsp
+struts.xml

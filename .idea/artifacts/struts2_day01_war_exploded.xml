@@ -7,11 +7,20 @@
         <element id="directory" name="classes">
           <element id="module-output" name="struts2_day01" />
           <element id="module-output" name="Struts2" />
+          <element id="module-output" name="struts2_crm" />
+          <element id="module-output" name="struts2_day02" />
+          <element id="module-output" name="struts2_crm_2" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="lib1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.30" />
+          <element id="library" level="project" name="lib3" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="struts2_crm/web/Web" />
+      <element id="javaee-facet-resources" facet="struts2_day02/web/Web" />
+      <element id="javaee-facet-resources" facet="struts2_crm_2/web/Web" />
     </root>
   </artifact>
 </component>

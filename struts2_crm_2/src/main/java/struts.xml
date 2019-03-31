@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 配置Struts2的常量 -->
+    <constant name="struts.action.extension" value="action"/>
+
+    <package name="crm" extends="struts-default" namespace="/">
+        <action name="customer_*" class="com.itheima.web.action.CustomerAction" method="{1}">
+            <result name="findSuccess">/jsp/customer/list.jsp</result>
+            <result name="saveUI">/jsp/customer/add.jsp</result>
+            <result name="saveSuccess" type="redirectAction">customer_find.action</result>
+            <!--如果不在同一个packa下-->
+            <!--<result name="saveSuccess" type="redirectAction">-->
+                <!--<param name="namespace">/xxx</param>-->
+                <!--<param name="actionName">linkMan_xxx.action</param>-->
+            <!--</result>-->
+        </action>
+    </package>
+
+    <!--<package name="crm2" extends="struts-default" namespace="/xxx">-->
+        <!--<action name="linkMan_xxx" class="com.itheima.web.action.CustomerAction" method="{1}"></action>-->
+    <!--</package>-->
+</struts>

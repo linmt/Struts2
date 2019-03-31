@@ -4,6 +4,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/struts2_day01/pom.xml" />
+        <option value="$PROJECT_DIR$/struts2_crm/pom.xml" />
+        <option value="$PROJECT_DIR$/struts2_day02/pom.xml" />
+        <option value="$PROJECT_DIR$/struts2_crm_2/pom.xml" />
+        <option value="$PROJECT_DIR$/struts2_day03/pom.xml" />
       </list>
     </option>
   </component>

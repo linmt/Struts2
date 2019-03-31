@@ -1,0 +1,8 @@
+OGNL 的入门——Java环境
+OgnlDemo
+
+OGNL 的入门——
+web.xml
+struts.xml
+log4j2.xml
+demo1\demo1.jsp

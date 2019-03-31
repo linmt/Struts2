@@ -6,11 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="struts2_crm" />
+        <module name="struts2_crm_2" />
         <module name="struts2_day01" />
+        <module name="struts2_day02" />
+        <module name="struts2_day03" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="struts2_crm" target="1.5" />
+      <module name="struts2_crm_2" target="1.5" />
       <module name="struts2_day01" target="1.5" />
+      <module name="struts2_day02" target="1.5" />
+      <module name="struts2_day03" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

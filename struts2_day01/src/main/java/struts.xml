@@ -10,11 +10,26 @@
         D:\Workspaces_for_IDEA\Struts2\struts2_day01\web\WEB-INF\lib\struts2-core-2.3.24.jar!\struts-default.xmla
      -->
     <!-- 记得要在project structure→facets中配置struts.xml -->
-    <package name="demo" namespace="/" extends="struts-default" >
+    <package name="demo1" namespace="/" extends="struts-default" >
         <!-- 配置action -->
-        <action name="hello" class="demo.HelloAction" method="execute" >
+        <action name="hello" class="demo1.HelloAction" method="execute" >
             <!-- 配置页面的跳转 -->
             <result name="success">/demo/success.jsp</result>
+        </action>
+
+        <action name="userFind" class="demo1.UserAction" method="find"></action>
+        <action name="userUpdate" class="demo1.UserAction" method="update"></action>
+        <action name="userDelete" class="demo1.UserAction" method="delete"></action>
+        <action name="userSave" class="demo1.UserAction" method="save"></action>
+
+        <!-- 通配符的方式 -->
+        <action name="product_*" class="demo1.ProductAction" method="{1}">
+            <allowed-methods>find,update,delete,save</allowed-methods>
+        </action>
+
+        <!-- 动态方法访问的方式 -->
+        <action name="customer" class="demo1.CustomerAction">
+            <allowed-methods>find,update,delete,save</allowed-methods>
         </action>
     </package>
     <!--&lt;!&ndash; 配置Struts2的常量 &ndash;&gt;-->
@@ -22,4 +37,6 @@
     <!-- 整合其他的struts的配置文件 -->
     <!-- 记得要在project structure→facets中配置struts_demo1.xml -->
     <include file="struts_demo1.xml"/>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
 </struts>

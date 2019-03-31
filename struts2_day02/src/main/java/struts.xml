@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="demo1" namespace="/" extends="struts-default" >
+        <!-- 全局结果页面 -->
+        <global-results>
+            <result>/demo1/demo2.jsp</result>
+        </global-results>
+
+        <action name="requestDemo1" class="demo1.RequestDemo1">
+            <result type="redirect">/demo1/demo2.jsp</result>
+        </action>
+        <action name="requestDemo2" class="demo1.RequestDemo2"></action>
+        <action name="requestDemo3" class="demo1.RequestDemo3"></action>
+    </package>
+
+    <package name="demo2" extends="struts-default" namespace="/">
+        <!--INPUT逻辑视图配置-->
+        <global-results>
+            <result name="input">/demo2/demo1.jsp</result>
+        </global-results>
+        <action name="userAction1" class="demo2.UserAction1"></action>
+        <action name="userAction2" class="demo2.UserAction2"></action>
+        <action name="userAction3" class="demo2.UserAction3"></action>
+    </package>
+
+    <package name="demo3" extends="struts-default" namespace="/">
+        <action name="productAction1" class="demo3.ProductAction1"></action>
+        <action name="productAction2" class="demo3.ProductAction2"></action>
+    </package>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+</struts>

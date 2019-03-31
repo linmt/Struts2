@@ -6,8 +6,8 @@
     <!-- Struts2为了管理Action的配置，通过包进行管理。 -->
     <!-- 配置Struts2的包 ================ -->
     <package name="demo2" extends="struts-default" namespace="/aa">
-        <action name="actionDemo1" class="demo.ActionDemo1"></action>
-        <action name="actionDemo2" class="demo.ActionDemo2"></action>
-        <action name="actionDemo3" class="demo.ActionDemo3"></action>
+        <action name="actionDemo1" class="demo1.ActionDemo1"></action>
+        <action name="actionDemo2" class="demo1.ActionDemo2"></action>
+        <action name="actionDemo3" class="demo1.ActionDemo3"></action>
     </package>
 </struts>
