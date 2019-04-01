@@ -1,7 +1,7 @@
 OGNL 的入门——Java环境
 OgnlDemo
 
-OGNL 的入门——
+OGNL 的入门——Struts2环境
 web.xml
 struts.xml
 log4j2.xml

@@ -14,11 +14,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="struts2_crm" target="1.5" />
-      <module name="struts2_crm_2" target="1.5" />
-      <module name="struts2_day01" target="1.5" />
-      <module name="struts2_day02" target="1.5" />
-      <module name="struts2_day03" target="1.5" />
+      <module name="struts2_crm" target="1.7" />
+      <module name="struts2_crm_2" target="1.7" />
+      <module name="struts2_day01" target="1.7" />
+      <module name="struts2_day02" target="1.7" />
+      <module name="struts2_day03" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -12,30 +12,25 @@ public class Demo2Action extends ActionSupport implements ModelDriven<User> {
 	
 	private User u = new User();
 	
-	@Override
-	public String execute() throws Exception {
-		
-		
-		
-		System.out.println(u);
-		
-		
-		return SUCCESS;
-	}
+//	@Override
+//	public String execute() throws Exception {
+//		System.out.println(u);
+//		return SUCCESS;
+//	}
 
-	/*@Override
-	public void prepare() throws Exception {
-				//压入栈顶
-				//1获得值栈
-				ValueStack vs = ActionContext.getContext().getValueStack();
-				//2将u压入栈顶
-				vs.push(u);
-	}*/
+	//http://localhost:8080/Demo2Action
+	//@Override
+	public String execute() throws Exception {
+		//压入栈顶
+		//1获得值栈
+		ValueStack vs = ActionContext.getContext().getValueStack();
+		//2将u压入栈顶
+		vs.push(u);
+		return NONE;
+	}
 
 	@Override
 	public User getModel() {
 		return u;
 	}
-
-	
 }
