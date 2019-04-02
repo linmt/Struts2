@@ -1,12 +1,10 @@
 package cn.itheima.c_param;
 
+import cn.itheima.bean.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.util.ValueStack;
-
-import cn.itheima.bean.User;
 
 public class Demo2Action extends ActionSupport implements ModelDriven<User> {
 	
@@ -26,7 +24,7 @@ public class Demo2Action extends ActionSupport implements ModelDriven<User> {
 		ValueStack vs = ActionContext.getContext().getValueStack();
 		//2将u压入栈顶
 		vs.push(u);
-		return NONE;
+		return SUCCESS;
 	}
 
 	@Override

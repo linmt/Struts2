@@ -57,11 +57,12 @@
 	User user = new User("小苍","123");
 	vs.set("user", user);
 	// 从栈顶开始查找，找user的属性，显示名称	返回的小苍
-	<s:property value="user.username"/>
+<s:property value="user.username"/>
 	
 	// [1].top获取ValueStack1Action [1].top.user返回user对象  [1].top.user.username获取对象的属性名称
 	<s:property value="[1].top.user.username"/>
 -->
+
 
 <!--  
 	栈顶是list集合
@@ -113,12 +114,14 @@ request.getSession().setAttribute("msg", "小风");
 	使用装饰者模式，连接池 全站编码
 	getAttribute()增强了
 -->
-<c:forEach items="${ ulist }" var="user">
-	${ user.username } -- ${ user.password }
-</c:forEach>
+<%--<c:forEach items="${ ulist }" var="user">--%>
+	<%--${ user.username } -- ${ user.password }--%>
+<%--</c:forEach>--%>
 
 <!-- 在JSP页面上，查看值栈的内部结构 -->
 <s:debug></s:debug>
-
+<s:property value="user.name"/>
+<p>dadad</p>
+<s:property value="name"/>
 </body>
 </html>

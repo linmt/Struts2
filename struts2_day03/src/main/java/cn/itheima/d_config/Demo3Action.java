@@ -19,7 +19,4 @@ public class Demo3Action extends ActionSupport {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	
 }

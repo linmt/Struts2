@@ -6,3 +6,12 @@ web.xml
 struts.xml
 log4j2.xml
 demo1\demo1.jsp
+
+值栈的内部结构
+Demo2Action
+success.jsp
+struts.xml
+
+获取值栈对象
+ValueStack1Action
+struts.xml
