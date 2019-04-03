@@ -7,6 +7,8 @@ import com.opensymphony.xwork2.util.ValueStack;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ValueStack1Action extends ActionSupport {
 
@@ -74,22 +76,21 @@ public class ValueStack1Action extends ActionSupport {
         vs.push(user);
         vs.set("user", user);
 
-//        List<User> ulist = new ArrayList<User>();
-//        ulist.add(new User("熊大",123));
-//        ulist.add(new User("熊二",456));
-//        ulist.add(new User("熊三",789));
-//
-//         //把ulist集合压栈
-//         vs.push(ulist);
-//
-//        // set方法进行压栈
-//        vs.set("ulist", ulist);
+        List<User> ulist = new ArrayList<User>();
+        ulist.add(new User("熊大",123));
+        ulist.add(new User("熊二",456));
+        ulist.add(new User("熊三",789));
+         //把ulist集合压栈
+         vs.push(ulist);
+
+        // set方法进行压栈
+        vs.set("ulist", ulist);
 
 
 		// 从context栈中获取值，底层已经封装到request session对象，操作就是map集合
-//		HttpServletRequest request = ServletActionContext.getRequest();
-//		request.setAttribute("msg", "美美");
-//		request.getSession().setAttribute("msg", "小风");
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("msg", "花花");
+//		request.getSession().setAttribute("msg", "小草");
 
         return SUCCESS;
     }

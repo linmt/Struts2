@@ -12,112 +12,184 @@
 </head>
 <body>
 <h3>从值栈中获取值</h3>
-<!--
-vs.push("美美");
-vs.set("msg", "小凤");
--->
+<!-- vs.push("美美"); -->
+<!-- 获取到栈顶的值：美美 -->
 获取到栈顶的值：<s:property value="[0].top"/></br>
 
 <!--
 	// 栈顶是map集合，通过key获取值
-	vs.set("msg", "小凤");
+	vs.push("美美");
+    vs.set("msg", "小凤");
+-->
+<!--
+获取到栈顶的值：{msg=小凤, com.opensymphony.xwork2.util.OgnlValueStack.MAP_IDENTIFIER_KEY=}
+[0].top.msg：小凤
 -->
 [0].top.msg：<s:property value="[0].top.msg"/></br>
 
 <!--  
-	vs.push(user);
-	// 栈顶放user对象
-	<s:property value="[0].top.username"/>
-	<s:property value="[0].top.password"/>
-	// [0].top 关键字是可以省略的  findValue()
-	<s:property value="username"/>
+vs.push("美美");
+vs.set("msg", "小凤");
+
+User user = new User("小苍",111);
+vs.push(user);
+-->
+<!--
+获取到栈顶的值：User [name=小苍, age=111]
+[0].top.msg：
+[0].top.name：小苍
+[0].top.age：111
+name：小苍
 -->
 [0].top.name：<s:property value="[0].top.name"/></br>
 [0].top.age：<s:property value="[0].top.age"/></br>
-<s:property value="name"/></br>
+<!-- [0].top 关键字是可以省略的  findValue() -->
+name：<s:property value="name"/></br>
 
 <!--
-	vs.set("user", user);
-	<s:property value="[0].top.user.username"/>
-	<s:property value="[0].top.user.password"/>
-	// 省略关键字
-	<s:property value="user.username"/>
+vs.push("美美");
+vs.set("msg", "小凤");
+
+User user = new User("小苍",111);
+vs.push(user);
+vs.set("user", user);
 -->
-[0].top.user.name：<s:property value="[0].top.user.name"/>
-[0].top.user.age：<s:property value="[0].top.user.age"/>
-user.name：<s:property value="user.name"/>
 <!--
 获取到栈顶的值：{user=User [name=小苍, age=111], com.opensymphony.xwork2.util.OgnlValueStack.MAP_IDENTIFIER_KEY=}
 [0].top.msg：
 [0].top.name：
 [0].top.age：
-小苍
-[0].top.user.name：小苍 [0].top.user.age：111 user.name：小苍
+name：小苍
+[0].top.user.name：小苍
+[0].top.user.age：111
+user.name：小苍
 -->
-<!--  
-	// 在ValueStack1Action提供了成员的属性
-	private User user = new User("小泽","456");
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	User user = new User("小苍","123");
-	vs.set("user", user);
-	// 从栈顶开始查找，找user的属性，显示名称	返回的小苍
-<s:property value="user.username"/>
-	
-	// [1].top获取ValueStack1Action [1].top.user返回user对象  [1].top.user.username获取对象的属性名称
-	<s:property value="[1].top.user.username"/>
--->
+[0].top.user.name：<s:property value="[0].top.user.name"/></br>
+[0].top.user.age：<s:property value="[0].top.user.age"/></br>
+<!-- [0].top 关键字是可以省略的 -->
+user.name：<s:property value="user.name"/></br>
 
 
 <!--  
-	栈顶是list集合
-	vs.push(ulist);
-	<s:property value="[0].top[0].username"/>
-	<s:property value="[0].top[1].username"/>
+		栈顶是list集合
+        vs.push("美美");
+        vs.set("msg", "小凤");
+
+        User user = new User("小苍",111);
+        vs.push(user);
+        vs.set("user", user);
+
+        List<User> ulist = new ArrayList<User>();
+        ulist.add(new User("熊大",123));
+        ulist.add(new User("熊二",456));
+        ulist.add(new User("熊三",789));
+         //把ulist集合压栈
+         vs.push(ulist);
 -->
+<!--
+获取到栈顶的值：[User [name=熊大, age=123], User [name=熊二, age=456], User [name=熊三, age=789]]
+[0].top.msg：
+[0].top.name：
+[0].top.age：
+name：小苍
+[0].top.user.name：
+[0].top.user.age：
+user.name：小苍
+栈顶是list集合
+[0].top[0].name：熊大
+[0].top[1].name：熊二
+-->
+栈顶是list集合</br>
+[0].top[0].name：<s:property value="[0].top[0].name"/></br>
+[0].top[1].name：<s:property value="[0].top[1].name"/></br>
 
 <!--
-	vs.set("ulist", ulist);
-	<s:property value="ulist[0].username"/>
+        vs.push("美美");
+        vs.set("msg", "小凤");
+
+        User user = new User("小苍",111);
+        vs.push(user);
+        vs.set("user", user);
+
+        List<User> ulist = new ArrayList<User>();
+        ulist.add(new User("熊大",123));
+        ulist.add(new User("熊二",456));
+        ulist.add(new User("熊三",789));
+         //把ulist集合压栈
+         vs.push(ulist);
+
+        // set方法进行压栈
+        vs.set("ulist", ulist);
 -->
-
-<!-- 迭代的标签 
-	属性
-		* value	要迭代的集合，需要从值栈中获取
-		* var	迭代过程中，遍历的对象
-			* var编写上，把迭代产生的对象默认压入到context栈中，从context栈取值，加#号
-			* var不编写，默认把迭代产生的对象压入到root栈中
-		
-	for(User user:ulist){}	
-	// 编写var的属性
-	<s:iterator value="ulist" var="u">
-		<s:property value="#u.username"/>
-		<s:property value="#u.password"/>
-	</s:iterator>
-	
-	// 没有编写var关键字
-	<s:iterator value="ulist">
-		<s:property value="username"/>
-		<s:property value="password"/>
-	</s:iterator>
+<!--
+获取到栈顶的值：{ulist=[User [name=熊大, age=123], User [name=熊二, age=456], User [name=熊三, age=789]], com.opensymphony.xwork2.util.OgnlValueStack.MAP_IDENTIFIER_KEY=}
+[0].top.msg：
+[0].top.name：
+[0].top.age：
+name：小苍
+[0].top.user.name：
+[0].top.user.age：
+user.name：小苍
+栈顶是list集合
+[0].top[0].name：
+[0].top[1].name：
+栈顶是set方法放入的集合
+ulist[0].username：熊大
 -->
+栈顶是set方法放入的集合</br>
+ulist[0].username：<s:property value="ulist[0].name"/></br>
 
-<!-- 从context栈中获取值，加#号 
+<!--
+* value	要迭代的集合，需要从值栈中获取
+* var	迭代过程中，遍历的对象
+	* var编写上，把迭代产生的对象默认压入到context栈中，从context栈取值，加#号
+	* var不编写，默认把迭代产生的对象压入到root栈中
+-->
+<!--
+获取到栈顶的值：{ulist=[User [name=熊大, age=123], User [name=熊二, age=456], User [name=熊三, age=789]], com.opensymphony.xwork2.util.OgnlValueStack.MAP_IDENTIFIER_KEY=}
+[0].top.msg：
+[0].top.name：
+[0].top.age：
+name：小苍
+[0].top.user.name：
+[0].top.user.age：
+user.name：小苍
+栈顶是list集合
+[0].top[0].name：
+[0].top[1].name：
+栈顶是set方法放入的集合
+ulist[0].username：熊大
+迭代----编写var的属性
+熊大 123 熊二 456 熊三 789
+迭代----没有编写var关键字
+熊大 123 熊二 456 熊三 789
+-->
+迭代----编写var的属性</br>
+<s:iterator value="ulist" var="u">
+	<s:property value="#u.name"/>
+	<s:property value="#u.age"/>
+</s:iterator>
+</br>
+迭代----没有编写var关键字</br>
+<s:iterator value="ulist">
+	<s:property value="name"/>
+	<s:property value="age"/>
+</s:iterator>
+</br>
 
+<!--
 HttpServletRequest request = ServletActionContext.getRequest();
 request.setAttribute("msg", "美美");
 request.getSession().setAttribute("msg", "小风");
-
-<s:property value="#request.msg"/>
-<s:property value="#session.msg"/>
-<s:property value="#parameters.id"/>
-<s:property value="#attr.msg"/>
 -->
+从context栈中获取值，加#号</br>
+#request.msg：<s:property value="#request.msg"/></br>
+#session.msg：<s:property value="#session.msg"/></br>
+#parameters.id：<s:property value="#parameters.id"/></br>
+#attr.msg：<s:property value="#attr.msg"/></br>
+
+
+
 
 <!--
 	在JSP页面上可以使用EL和JSTL标签库来取值
@@ -125,12 +197,10 @@ request.getSession().setAttribute("msg", "小风");
 	getAttribute()增强了
 -->
 <%--<c:forEach items="${ ulist }" var="user">--%>
-	<%--${ user.username } -- ${ user.password }--%>
+	<%--${ user.name } -- ${ user.age }--%>
 <%--</c:forEach>--%>
 
 <!-- 在JSP页面上，查看值栈的内部结构 -->
 <s:debug></s:debug>
-<s:property value="user.name"/></br>
-<s:property value="name"/></br>
 </body>
 </html>
