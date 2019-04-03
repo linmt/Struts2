@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,20 +11,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <h3>从值栈中获取值</h3>
-
 <!--
-	// vs.push("美美");
-	// 获取到栈顶的值
-	<s:property value="[0].top"/>
+vs.push("美美");
+vs.set("msg", "小凤");
 -->
+获取到栈顶的值：<s:property value="[0].top"/></br>
 
 <!--
 	// 栈顶是map集合，通过key获取值
 	vs.set("msg", "小凤");
-	<s:property value="[0].top.msg"/>
 -->
+[0].top.msg：<s:property value="[0].top.msg"/></br>
 
 <!--  
 	vs.push(user);
@@ -35,6 +32,9 @@
 	// [0].top 关键字是可以省略的  findValue()
 	<s:property value="username"/>
 -->
+[0].top.name：<s:property value="[0].top.name"/></br>
+[0].top.age：<s:property value="[0].top.age"/></br>
+<s:property value="name"/></br>
 
 <!--
 	vs.set("user", user);
@@ -43,7 +43,17 @@
 	// 省略关键字
 	<s:property value="user.username"/>
 -->
-
+[0].top.user.name：<s:property value="[0].top.user.name"/>
+[0].top.user.age：<s:property value="[0].top.user.age"/>
+user.name：<s:property value="user.name"/>
+<!--
+获取到栈顶的值：{user=User [name=小苍, age=111], com.opensymphony.xwork2.util.OgnlValueStack.MAP_IDENTIFIER_KEY=}
+[0].top.msg：
+[0].top.name：
+[0].top.age：
+小苍
+[0].top.user.name：小苍 [0].top.user.age：111 user.name：小苍
+-->
 <!--  
 	// 在ValueStack1Action提供了成员的属性
 	private User user = new User("小泽","456");
@@ -120,8 +130,7 @@ request.getSession().setAttribute("msg", "小风");
 
 <!-- 在JSP页面上，查看值栈的内部结构 -->
 <s:debug></s:debug>
-<s:property value="user.name"/>
-<p>dadad</p>
-<s:property value="name"/>
+<s:property value="user.name"/></br>
+<s:property value="name"/></br>
 </body>
 </html>
