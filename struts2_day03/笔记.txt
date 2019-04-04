@@ -30,3 +30,12 @@ struts.xml
 ValueStack1Action
 vs.jsp
 struts.xml
+
+EL的特殊字符的使用——#号的使用
+demo2.jsp
+
+EL的特殊字符的使用——%号的使用
+demo3.jsp
+
+EL的特殊字符的使用——$号的使用
+demo4.jsp

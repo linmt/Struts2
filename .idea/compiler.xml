@@ -11,6 +11,7 @@
         <module name="struts2_day01" />
         <module name="struts2_day02" />
         <module name="struts2_day03" />
+        <module name="struts2_day04" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +20,7 @@
       <module name="struts2_day01" target="1.7" />
       <module name="struts2_day02" target="1.7" />
       <module name="struts2_day03" target="1.7" />
+      <module name="struts2_day04" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

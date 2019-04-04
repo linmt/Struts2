@@ -1,6 +1,5 @@
-package cn.itheima.action;
+package cn.itheima;
 
-import cn.itheima.bean.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.util.ValueStack;
@@ -90,7 +89,8 @@ public class ValueStack1Action extends ActionSupport {
 		// 从context栈中获取值，底层已经封装到request session对象，操作就是map集合
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.setAttribute("msg", "花花");
-//		request.getSession().setAttribute("msg", "小草");
+		request.getSession().setAttribute("msg", "小草");
+        ServletActionContext.getServletContext().setAttribute("msg","权志龙");
 
         return SUCCESS;
     }

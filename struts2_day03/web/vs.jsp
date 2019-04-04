@@ -178,9 +178,51 @@ ulist[0].username：熊大
 </br>
 
 <!--
-HttpServletRequest request = ServletActionContext.getRequest();
-request.setAttribute("msg", "美美");
-request.getSession().setAttribute("msg", "小风");
+        vs.push("美美");
+        vs.set("msg", "小凤");
+
+        User user = new User("小苍",111);
+        vs.push(user);
+        vs.set("user", user);
+
+        List<User> ulist = new ArrayList<User>();
+        ulist.add(new User("熊大",123));
+        ulist.add(new User("熊二",456));
+        ulist.add(new User("熊三",789));
+         //把ulist集合压栈
+         vs.push(ulist);
+
+        // set方法进行压栈
+        vs.set("ulist", ulist);
+
+
+		// 从context栈中获取值，底层已经封装到request session对象，操作就是map集合
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("msg", "花花");
+-->
+<!--
+获取到栈顶的值：{ulist=[User [name=熊大, age=123], User [name=熊二, age=456], User [name=熊三, age=789]], com.opensymphony.xwork2.util.OgnlValueStack.MAP_IDENTIFIER_KEY=}
+[0].top.msg：
+[0].top.name：
+[0].top.age：
+name：小苍
+[0].top.user.name：
+[0].top.user.age：
+user.name：小苍
+栈顶是list集合
+[0].top[0].name：
+[0].top[1].name：
+栈顶是set方法放入的集合
+ulist[0].username：熊大
+迭代----编写var的属性
+熊大 123 熊二 456 熊三 789
+迭代----没有编写var关键字
+熊大 123 熊二 456 熊三 789
+从context栈中获取值，加#号
+#request.msg：花花
+#session.msg：
+#parameters.id：
+#attr.msg：花花
 -->
 从context栈中获取值，加#号</br>
 #request.msg：<s:property value="#request.msg"/></br>
@@ -188,17 +230,80 @@ request.getSession().setAttribute("msg", "小风");
 #parameters.id：<s:property value="#parameters.id"/></br>
 #attr.msg：<s:property value="#attr.msg"/></br>
 
+<!--
+        vs.push("美美");
+        vs.set("msg", "小凤");
 
+        User user = new User("小苍",111);
+        vs.push(user);
+        vs.set("user", user);
+
+        List<User> ulist = new ArrayList<User>();
+        ulist.add(new User("熊大",123));
+        ulist.add(new User("熊二",456));
+        ulist.add(new User("熊三",789));
+         //把ulist集合压栈
+         vs.push(ulist);
+
+        // set方法进行压栈
+        vs.set("ulist", ulist);
+
+
+		// 从context栈中获取值，底层已经封装到request session对象，操作就是map集合
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("msg", "花花");
+		request.getSession().setAttribute("msg", "小草");
+-->
+<!--
+http://localhost:8080/showvs/save?id=123
+-->
+<!--
+获取到栈顶的值：{ulist=[User [name=熊大, age=123], User [name=熊二, age=456], User [name=熊三, age=789]], com.opensymphony.xwork2.util.OgnlValueStack.MAP_IDENTIFIER_KEY=}
+[0].top.msg：
+[0].top.name：
+[0].top.age：
+name：小苍
+[0].top.user.name：
+[0].top.user.age：
+user.name：小苍
+栈顶是list集合
+[0].top[0].name：
+[0].top[1].name：
+栈顶是set方法放入的集合
+ulist[0].username：熊大
+迭代----编写var的属性
+熊大 123 熊二 456 熊三 789
+迭代----没有编写var关键字
+熊大 123 熊二 456 熊三 789
+从context栈中获取值，加#号
+#request.msg：花花
+#session.msg：小草
+#parameters.id：123
+#attr.msg：花花
+从context栈中获取值，加#号
+#request.msg：花花
+#session.msg：小草
+#parameters.id：123
+#application.msg：权志龙
+如果request中没有数据，会从session中找，session中没有，从application中找
+#attr.msg：花花
+-->
+从context栈中获取值，加#号</br>
+#request.msg：<s:property value="#request.msg"/></br>
+第一次访问，session中没有数据？</br>
+#session.msg：<s:property value="#session.msg"/></br>
+#parameters.id：<s:property value="#parameters.id"/></br>
+#application.msg：<s:property value="#application.msg"/></br>
+如果request中没有数据，会从session中找，session中没有，从application中找</br>
+#attr.msg：<s:property value="#attr.msg"/></br>
 
 
 <!--
-	在JSP页面上可以使用EL和JSTL标签库来取值
-	使用装饰者模式，连接池 全站编码
-	getAttribute()增强了
+熊大 -- 123 熊二 -- 456 熊三 -- 789
 -->
-<%--<c:forEach items="${ ulist }" var="user">--%>
-	<%--${ user.name } -- ${ user.age }--%>
-<%--</c:forEach>--%>
+<c:forEach items="${ ulist }" var="user">
+	${ user.name } -- ${ user.age }
+</c:forEach>
 
 <!-- 在JSP页面上，查看值栈的内部结构 -->
 <s:debug></s:debug>

@@ -1,6 +1,5 @@
-package cn.itheima.c_param;
+package cn.itheima;
 
-import cn.itheima.bean.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;

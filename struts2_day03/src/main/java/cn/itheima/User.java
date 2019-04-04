@@ -1,4 +1,4 @@
-package cn.itheima.bean;
+package cn.itheima;
 
 public class User {
 	private String name;

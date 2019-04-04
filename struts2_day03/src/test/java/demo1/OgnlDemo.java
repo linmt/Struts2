@@ -1,6 +1,6 @@
 package demo1;
 
-import cn.itheima.bean.User;
+import cn.itheima.User;
 import org.junit.Test;
 
 import ognl.Ognl;

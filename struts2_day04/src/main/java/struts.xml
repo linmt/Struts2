@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="demo" extends="struts-default" namespace="/">
+        <action name="actionDemo1" class="ActionDemo1">
+            <result>/demo1.jsp</result>
+
+            <!-- 引入拦截器(一旦引入自定义拦截器，默认拦截器栈的拦截器就不执行了。)=========== -->
+            <interceptor-ref name="myStack"/>
+            <!-- <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="interceptorDemo1"/>
+            <interceptor-ref name="interceptorDemo2"/> -->
+        </action>
+    </package>
+</struts>

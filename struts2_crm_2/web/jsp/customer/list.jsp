@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,24 +90,42 @@
 													<TD>手机</TD>
 													<TD>操作</TD>
 												</TR>
-												<c:forEach items="${list }" var="customer">
-												<TR
-													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-													<TD>${customer.cust_name }</TD>
-													<TD>${customer.cust_level }</TD>
-													<TD>${customer.cust_source }</TD>
-													<TD>${customer.cust_industry }</TD>
-													<TD>${customer.cust_phone }</TD>
-													<TD>${customer.cust_mobile }</TD>
-													<TD>
-													<a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=${customer.cust_id}">修改</a>
-													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>
-													</TD>
-												</TR>
-												
-												</c:forEach>
-
+												<%--<c:forEach items="${list }" var="customer">--%>
+												<%--<TR--%>
+													<%--style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">--%>
+													<%--<TD>${customer.cust_name }</TD>--%>
+													<%--<TD>${customer.cust_level }</TD>--%>
+													<%--<TD>${customer.cust_source }</TD>--%>
+													<%--<TD>${customer.cust_industry }</TD>--%>
+													<%--<TD>${customer.cust_phone }</TD>--%>
+													<%--<TD>${customer.cust_mobile }</TD>--%>
+													<%--<TD>--%>
+													<%--<a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=${customer.cust_id}">修改</a>--%>
+													<%--&nbsp;&nbsp;--%>
+													<%--<a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>--%>
+													<%--</TD>--%>
+												<%--</TR>--%>
+												<%--</c:forEach>--%>
+												<%--
+												如果<s:iterator var="c" value="list">
+												则<TD><s:property value="#c.cust_name"/></TD>
+												因为此时数据在context中
+												--%>
+												<s:iterator value="list">
+													<TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+														<TD><s:property value="cust_name"/></TD>
+														<TD><s:property value="cust_level"/></TD>
+														<TD><s:property value="cust_source"/></TD>
+														<TD><s:property value="cust_industry"/></TD>
+														<TD><s:property value="cust_phone"/></TD>
+														<TD><s:property value="cust_mobile"/></TD>
+														<TD>
+															<a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=">修改</a>
+															&nbsp;&nbsp;
+															<a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=">删除</a>
+														</TD>
+													</TR>
+												</s:iterator>
 											</TBODY>
 										</TABLE>
 									</TD>
