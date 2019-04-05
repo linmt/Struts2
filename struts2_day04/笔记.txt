@@ -1,4 +1,11 @@
 拦截器简单案例
 ActionDemo1
+InterceptorDemo1
+InterceptorDemo2
 demo1.jsp
+struts.xml
+
+标签库
+demo2.jsp
+UIAction
 struts.xml

@@ -6,14 +6,36 @@
 
 <struts>
     <package name="demo" extends="struts-default" namespace="/">
+        <!--定义拦截器，方式一 -->
+        <interceptors>
+            <interceptor name="interceptorDemo1" class="InterceptorDemo1"/>
+            <interceptor name="interceptorDemo2" class="InterceptorDemo2"/>
+
+            <!--定义拦截器，方式二：定义拦截器栈 -->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="interceptorDemo1"/>
+                <interceptor-ref name="interceptorDemo2"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--http://localhost:8080/demo/actionDemo1-->
         <action name="actionDemo1" class="ActionDemo1">
             <result>/demo1.jsp</result>
-
-            <!-- 引入拦截器(一旦引入自定义拦截器，默认拦截器栈的拦截器就不执行了。)=========== -->
-            <interceptor-ref name="myStack"/>
-            <!-- <interceptor-ref name="defaultStack"/>
+            <!-- 引入拦截器(一旦引入自定义拦截器，默认拦截器栈的拦截器就不执行了。需要手动添加默认的拦截器)-->
+            <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="interceptorDemo1"/>
-            <interceptor-ref name="interceptorDemo2"/> -->
+            <interceptor-ref name="interceptorDemo2"/>
+        </action>
+
+        <!--http://localhost:8080/demo/actionDemo2-->
+        <action name="actionDemo2" class="ActionDemo1">
+            <result>/demo1.jsp</result>
+            <interceptor-ref name="myStack"/>
+        </action>
+
+        <action name="uiAction" class="UIAction">
+            <result name="input">/demo3.jsp</result>
         </action>
     </package>
 </struts>

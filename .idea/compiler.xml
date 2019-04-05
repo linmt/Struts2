@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="struts2_crm" />
         <module name="struts2_crm_2" />
+        <module name="struts2_crm_day04" />
         <module name="struts2_day01" />
         <module name="struts2_day02" />
         <module name="struts2_day03" />
@@ -17,6 +18,7 @@
     <bytecodeTargetLevel>
       <module name="struts2_crm" target="1.7" />
       <module name="struts2_crm_2" target="1.7" />
+      <module name="struts2_crm_day04" target="1.7" />
       <module name="struts2_day01" target="1.7" />
       <module name="struts2_day02" target="1.7" />
       <module name="struts2_day03" target="1.7" />
