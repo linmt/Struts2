@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Struts2.iml" filepath="$PROJECT_DIR$/Struts2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssh/ssh.iml" filepath="$PROJECT_DIR$/ssh/ssh.iml" />
       <module fileurl="file://$PROJECT_DIR$/struts2_crm/struts2_crm.iml" filepath="$PROJECT_DIR$/struts2_crm/struts2_crm.iml" />
       <module fileurl="file://$PROJECT_DIR$/struts2_crm_2/struts2_crm_2.iml" filepath="$PROJECT_DIR$/struts2_crm_2/struts2_crm_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/struts2_crm_day04/struts2_crm_day04.iml" filepath="$PROJECT_DIR$/struts2_crm_day04/struts2_crm_day04.iml" />
